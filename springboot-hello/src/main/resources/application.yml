@@ -1,3 +1,10 @@
 spring:
   profiles:
     active: dev
+  application:
+    name: eureka-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
