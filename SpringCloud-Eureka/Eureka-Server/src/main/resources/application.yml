@@ -1,0 +1,13 @@
+server:
+  port: 2000
+
+eureka:
+  instance:
+    # 指定服务注册中心的主机地址
+    hostname: localhost
+  client:
+    # 禁用服务注册中心的服务注册和服务发现
+    fetch-registry: false         # 服务发现
+    register-with-eureka: false   # 服务注册
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
