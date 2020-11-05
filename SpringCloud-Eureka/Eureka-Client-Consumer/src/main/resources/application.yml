@@ -1,0 +1,13 @@
+server:
+  port: 3001
+
+# 服务名，消费者通过此名称来调用该服务
+spring:
+  application:
+    name: eureka-client-consumer
+
+# 指定服务注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer2:2002/eureka/
