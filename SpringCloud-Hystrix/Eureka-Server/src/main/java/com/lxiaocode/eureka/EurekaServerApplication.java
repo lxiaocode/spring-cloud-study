@@ -6,7 +6,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * @author lixiaofeng
- * @date 2020/11/7 下午6:46
+ * @date 2020/11/8 下午5:23
  * @blog http://www.lxiaocode.com/
  */
 @EnableEurekaServer
