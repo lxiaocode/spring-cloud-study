@@ -1,0 +1,24 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2000/eureka/
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: hello-service
+    api-b:
+      path: /api-b/**
+      serviceId: eureka-consumer
+#management:
+#  trace:
+#    http:
+#      include: *
