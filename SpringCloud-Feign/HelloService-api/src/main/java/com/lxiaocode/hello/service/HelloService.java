@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
  * @author lixiaofeng
  * @date 2020/11/9 上午9:39
  * @blog http://www.lxiaocode.com/
+ *
+ * Eureka-Provider 服务的接口定义
  */
 @RequestMapping("/refactor")
 public interface HelloService {

@@ -9,6 +9,25 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:2000/eureka/
+
+# 开启 Hystrix
 feign:
   hystrix:
     enabled: true
+
+# ------------------------------------------------------------------------
+# Spring Cloud Feign 的客户端负载均衡是通过 Spring Cloud Ribbon 实现的，
+# 所以我们可以直接通过配置 Ribbon 客户端的方式来配置 Ribbon。
+
+# Ribbon 全局配置
+# 通过 ribbon.<key>=<value> 的方式设置 ribbon 的各项默认参数。
+ribbon:
+  ConnectTimeout: 250   # 请求连接的超时时间
+  ReadTimeout: 1000     # 请求处理的超时时间
+
+# Ribbon 指定服务器配置
+# 通过 <client>.ribbon.<key>=<value> 的方式设置指定服务配置。这里的 <client> 对应 @FeignClient 的 value 值。
+hello-serivce:
+  ribbon:
+    ConnectTimeout: 500             # 请求连接的超时时间
+    ReadTimeout: 1000               # 请求处理的超时时间

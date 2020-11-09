@@ -14,30 +14,28 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ConsumerController {
 
-//    @Autowired
-//    private HelloService helloService;
+    // 注入 Feign 客户端
+    @Autowired
+    private HelloService helloService;
+
+    @GetMapping("/consumer/hello")
+    public String hello() {
+        return helloService.hello();
+    }
+
+    @GetMapping("/consumer1")
+    public String helloConsumer1() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(helloService.hello("lxiaocode")).append("\n");
+        sb.append(helloService.hello("lxiaocode", 20)).append("\n");
+        sb.append(helloService.hello(new User("lxiaocode", 20))).append("\n");
+        return sb.toString();
+    }
+
+
+
     @Autowired
     private RefactorHelloService refactorHelloService;
-
-//    @GetMapping("/consumer/hello")
-//    public String hello() {
-//        return helloService.hello();
-//    }
-//
-//    @GetMapping("/consumer/hello1")
-//    public String hello(@RequestParam String name) {
-//        return helloService.hello(name);
-//    }
-//
-//    @GetMapping("/consumer/hello2")
-//    public User hello(@RequestHeader String name, @RequestHeader Integer age) {
-//        return helloService.hello(name, age);
-//    }
-//
-//    @PostMapping("/consumer/hello3")
-//    public String hello(@RequestBody User user) {
-//        return helloService.hello(user);
-//    }
 
     @GetMapping("/consumer2")
     public String helloConsumer2() {
