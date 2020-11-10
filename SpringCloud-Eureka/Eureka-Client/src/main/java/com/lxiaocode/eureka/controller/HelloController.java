@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    // @EnableDiscoveryClient 开启的服务发现接口
+    // 服务发现客户端
     private final DiscoveryClient client;
 
     public HelloController(DiscoveryClient client) {
