@@ -16,7 +16,7 @@ public class HelloController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/hello")
-    public String index() {
+    public String index() throws InterruptedException {
         logger.info("========= 调用 index =========");
         return "Hello World";
     }
