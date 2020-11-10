@@ -1,0 +1,32 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: config
+  # 配置中心
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      profile: dev
+  # 消息队列
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: springcloud
+
+# 服务注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2000/eureka/
+
+# 将 /actuator/bus-refresh 端点暴露出来，否则报 404
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
