@@ -7,7 +7,15 @@ eureka:
     hostname: localhost
   client:
     # 禁用服务注册中心的服务注册和服务发现
-    fetch-registry: false         # 服务发现
-    register-with-eureka: false   # 服务注册
+    fetch-registry: false         # 单节点部署时禁止服务发现
+    register-with-eureka: false   # 单节点部署时禁止服务注册
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# -----------------------------------------------------------------------------------------------------------------
+# 这里讲解 Eureka Server 配置。
+  # ——> Client 配置请看 Eureka-Client 模块的配置文件
+
+# 大多数情况下，我们不需要修改 Eureka Server 的配置信息。
+# 有兴趣可以查看 org.springframework.cloud.netflix.eureka.server.EurekaServerConfigBean 类进一步学习。
+# 这些参数都是以 eureka.server 作为前缀。

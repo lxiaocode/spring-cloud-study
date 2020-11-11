@@ -19,6 +19,7 @@ public class ConsumerController {
 
     @GetMapping("/consumer/hello")
     public String index() {
+        System.out.println("=== 执行 index");
         return restTemplate.getForEntity("http://hello-service/hello", String.class).getBody();
     }
 }

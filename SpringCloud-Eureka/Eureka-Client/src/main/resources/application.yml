@@ -10,4 +10,32 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://peer1:2001/eureka/
+#      defaultZone: http://peer1:2001/eureka/
+      defaultZone: http://localhost:2000/eureka/
+
+# -----------------------------------------------------------------------------------------------------------------
+# 这里讲解 Eureka Client 配置。
+  # ——> Server 配置请看 Eureka-Server 模块的配置文件
+
+# Eureka Client 配置主要分为两部分：
+  # 服务注册相关，如：服务注册中心的地址、服务获取的间隔时间、可用区域 等。
+  # 服务实例相关，如：服务实例名称、IP 地址、端口号、健康检查路径 等。
+
+  # 服务注册相关
+  # 1. 指定注册中心
+  #    通过 eureka.client.service-url 参数实现。
+  #    它的配置值存储在 HashMap 中，默认的 key 为 defaultZone，value 为 http://localhost:8761/eureka/
+  #    如果服务注册中心加入了安全校验，需要配置用户名和密码，如：http://<username>:<password>@localhost:8761/eureka/
+  # 2. 其他配置 ...
+  #    服务注册相关配置在 org.springframework.cloud.netflix.eureka.EurekaClientConfigBean 类。
+  #    这些配置信息都是以 eureka.client 为前缀。
+
+  # 服务实例相关
+  # 服务实例有一大部分是对服务实例元数据进行配置
+  # 1. 实例名配置
+  #    通过 eureka.instance.instanceId 参数实现
+  # 2. 端点配置
+  # 3. 健康检测
+  # 4. 其他配置
+  #    服务注册相关配置在 org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean 类。
+  #    这些配置信息都是以 eureka.instance 为前缀。
